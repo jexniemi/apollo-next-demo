@@ -1,3 +1,5 @@
+import { Resolvers } from "./generated/graphql";
+
 const books = [
   {
     title: "The Awakening",
@@ -16,7 +18,7 @@ const books = [
  */
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
     books: () => books,
   },
