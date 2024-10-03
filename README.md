@@ -1,6 +1,6 @@
-# Apollo GraphQL server + MongoDB example
+# Apollo GraphQL server with MongoDB + Next.js client
 
-A simple example of Apollo GraphQL server with MongoDB database.
+A simple example of Apollo GraphQL server with MongoDB database, and a Next.js UI with Apollo client.
 
 ## Instructions
 
