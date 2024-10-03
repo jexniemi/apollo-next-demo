@@ -8,6 +8,7 @@ type Book {
 }
 
 type AddBookMutationResponse {
+  id: ID!
   code: String!
   success: Boolean!
   message: String!

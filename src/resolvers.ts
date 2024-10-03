@@ -1,32 +1,23 @@
 import { Resolvers } from "./generated/graphql";
 
-const books = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
-
-/* const authors = [
-  { name: "Kate Chopin", books: [books[0]] },
-  { name: "Paul Auster", books: [books[1]] },
-];
- */
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
 const resolvers: Resolvers = {
   Query: {
-    books: () => books,
+    books: async (_, __, context) => {
+      const books = await context.dataSources.books.getBooks();
+      return books;
+    },
   },
   Mutation: {
-    addBook: (_, { title, author }) => {
+    addBook: async (_, { title, author }, context) => {
       const newBook = { title, author };
-      books.push(newBook);
+      const insertedId = await context.dataSources.books.createBook(
+        title,
+        author
+      );
       return {
+        id: insertedId.toString(),
         book: newBook,
         code: "200",
         message: "Book added successfully",

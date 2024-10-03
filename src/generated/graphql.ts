@@ -20,6 +20,7 @@ export type AddBookMutationResponse = {
   __typename?: 'AddBookMutationResponse';
   book?: Maybe<Book>;
   code: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
   message: Scalars['String']['output'];
   success: Scalars['Boolean']['output'];
 };
@@ -125,6 +126,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = ResolversObject<{
   AddBookMutationResponse: ResolverTypeWrapper<AddBookMutationResponse>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Book: ResolverTypeWrapper<Book>;
   Mutation: ResolverTypeWrapper<{}>;
@@ -136,6 +138,7 @@ export type ResolversTypes = ResolversObject<{
 export type ResolversParentTypes = ResolversObject<{
   AddBookMutationResponse: AddBookMutationResponse;
   String: Scalars['String']['output'];
+  ID: Scalars['ID']['output'];
   Boolean: Scalars['Boolean']['output'];
   Book: Book;
   Mutation: {};
@@ -193,6 +196,7 @@ export type MapDirectiveResolver<Result, Parent, ContextType = MyContext, Args =
 export type AddBookMutationResponseResolvers<ContextType = MyContext, ParentType extends ResolversParentTypes['AddBookMutationResponse'] = ResolversParentTypes['AddBookMutationResponse']> = ResolversObject<{
   book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType>;
   code?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
