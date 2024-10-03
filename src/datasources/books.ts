@@ -1,6 +1,8 @@
 import { Db } from "mongodb";
 import { Book } from "../generated/graphql";
 
+const key = "books";
+
 export default class BooksDataSource {
   private dbConnection: Db;
 
@@ -9,7 +11,7 @@ export default class BooksDataSource {
   }
 
   async getBooks(): Promise<Book[]> {
-    const books = await this.dbConnection.collection("books").find().toArray();
+    const books = await this.dbConnection.collection(key).find().toArray();
     return books.map((document) => ({
       title: document.title,
       author: document.author,
@@ -18,7 +20,7 @@ export default class BooksDataSource {
   }
 
   async createBook(title: string, author: string) {
-    const result = await this.dbConnection.collection("books").insertOne({
+    const result = await this.dbConnection.collection(key).insertOne({
       title,
       author,
     });
