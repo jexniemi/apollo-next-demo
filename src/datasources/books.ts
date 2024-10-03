@@ -12,6 +12,7 @@ export default class BooksDataSource {
     return books.map((document) => ({
       title: document.title,
       author: document.author,
+      id: document._id.toString(),
     }));
   }
 
@@ -20,6 +21,6 @@ export default class BooksDataSource {
       title,
       author,
     });
-    return result.insertedId;
+    return result.insertedId.toString();
   }
 }

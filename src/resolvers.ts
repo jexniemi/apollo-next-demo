@@ -17,8 +17,7 @@ const resolvers: Resolvers = {
         author
       );
       return {
-        id: insertedId.toString(),
-        book: newBook,
+        book: { ...newBook, id: insertedId },
         code: "200",
         message: "Book added successfully",
         success: true,
