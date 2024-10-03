@@ -22,6 +22,18 @@ const resolvers: Resolvers = {
   Query: {
     books: () => books,
   },
+  Mutation: {
+    addBook: (_, { title, author }) => {
+      const newBook = { title, author };
+      books.push(newBook);
+      return {
+        book: newBook,
+        code: "200",
+        message: "Book added successfully",
+        success: true,
+      };
+    },
+  },
 };
 
 export default resolvers;
