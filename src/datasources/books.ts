@@ -1,4 +1,5 @@
 import { Db } from "mongodb";
+import { Book } from "../generated/graphql";
 
 export default class BooksDataSource {
   private dbConnection: Db;
@@ -7,7 +8,7 @@ export default class BooksDataSource {
     this.dbConnection = dbConnection;
   }
 
-  async getBooks() {
+  async getBooks(): Promise<Book[]> {
     const books = await this.dbConnection.collection("books").find().toArray();
     return books.map((document) => ({
       title: document.title,
