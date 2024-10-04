@@ -25,3 +25,22 @@ body {
     text-wrap: balance;
   }
 }
+
+table {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+thead {
+  background: #f0f0f0;
+}
+
+th {
+  padding: 10px;
+  border-bottom: solid 1px #ccc;
+}
+
+td {
+  padding: 10px 20px;
+  border-bottom: solid 1px #ccc;
+}
