@@ -1,5 +1,6 @@
 type Query {
   books: [Book]
+  book(id: ID!): Book!
 }
 
 type Book {
@@ -15,6 +16,18 @@ type AddBookMutationResponse {
   book: Book!
 }
 
+type UpdateBookMutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  book: Book!
+}
+
 type Mutation {
   addBook(title: String!, author: String!): AddBookMutationResponse
+  updateBook(
+    id: ID!
+    title: String!
+    author: String!
+  ): UpdateBookMutationResponse
 }
