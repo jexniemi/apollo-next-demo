@@ -24,10 +24,10 @@ const server = new ApolloServer({
 });
 
 // Initialize the database connection
-const { db, client } = await initDBConnection();
+const { db, mongoClient } = await initDBConnection();
 
 process.on("exit", () => {
-  client.close();
+  mongoClient.close();
 });
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:

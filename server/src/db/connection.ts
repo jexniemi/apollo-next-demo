@@ -2,7 +2,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 
 export const initDBConnection = async () => {
   const uri = process.env.ATLAS_URI || "";
-  const client = new MongoClient(uri, {
+  const mongoClient = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
@@ -12,9 +12,9 @@ export const initDBConnection = async () => {
 
   try {
     // Connect the client to the server
-    await client.connect();
+    await mongoClient.connect();
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
+    await mongoClient.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
@@ -22,6 +22,6 @@ export const initDBConnection = async () => {
     console.error(err);
   }
 
-  let db = client.db("books");
-  return { db, client };
+  let db = mongoClient.db("books");
+  return { db, mongoClient };
 };
