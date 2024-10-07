@@ -19,3 +19,18 @@ export const GET_BOOK = gql(`
     }
   }
 `);
+
+export const UPDATE_BOOK = gql(`
+  mutation UpdateBook($id: ID!, $title: String!, $author: String!) {
+    updateBook (id: $id, title: $title, author: $author) {
+      book {
+        author
+        id
+        title
+        }
+      code
+      message
+      success
+      }
+    }
+`);

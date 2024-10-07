@@ -54,7 +54,7 @@ export type MutationUpdateBookArgs = {
 export type Query = {
   __typename?: 'Query';
   book: Book;
-  books?: Maybe<Array<Maybe<Book>>>;
+  books: Array<Book>;
 };
 
 
@@ -240,7 +240,7 @@ export type MutationResolvers<ContextType = MyContext, ParentType extends Resolv
 
 export type QueryResolvers<ContextType = MyContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   book?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<QueryBookArgs, 'id'>>;
-  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  books?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType>;
 }>;
 
 export type UpdateBookMutationResponseResolvers<ContextType = MyContext, ParentType extends ResolversParentTypes['UpdateBookMutationResponse'] = ResolversParentTypes['UpdateBookMutationResponse']> = ResolversObject<{

@@ -12,3 +12,7 @@ PORT=5050`
 Run server: `cd server && npm start`
 
 Run client: `cd client && npm run dev`
+
+## Types
+
+Types are automatically generated based on the GraphQL schema. In /client or /server, run `npm run compile` to generate types.

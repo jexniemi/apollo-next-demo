@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import GraphQLProvider from "@/apollo/provider";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="navbar bg-base-100">
+          <Link href="/" className="btn btn-ghost text-xl">
+            BookGraph
+          </Link>
+        </div>
         <GraphQLProvider>{children}</GraphQLProvider>
       </body>
     </html>

@@ -3,8 +3,8 @@ import BookList from "./components/BookList";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 text-center">
+    <div className="flex flex-col items-center min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 text-center">
         <h1 className="text-3xl">Books</h1>
         <div>
           <BookList />

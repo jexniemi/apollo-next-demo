@@ -1,6 +1,5 @@
 "use client";
 import { GET_BOOKS } from "@/apollo/queries/books";
-import { Book } from "@/types/types";
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 
@@ -11,7 +10,7 @@ const BookList = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <table className="table-auto">
+    <table className="table">
       <thead>
         <tr>
           <th>Title</th>
@@ -19,15 +18,17 @@ const BookList = () => {
           <th>Link</th>
         </tr>
       </thead>
-      {data.books.map((book: Book) => (
-        <tr key={book.id}>
-          <td>{book.title}</td>
-          <td>{book.author}</td>
-          <td>
-            <Link href={`/book/${book.id}`}>-</Link>
-          </td>
-        </tr>
-      ))}
+      {data &&
+        data.books &&
+        data.books.map((book) => (
+          <tr key={book.id}>
+            <td>{book.title}</td>
+            <td>{book.author}</td>
+            <td>
+              <Link href={`/book/${book.id}`}>-</Link>
+            </td>
+          </tr>
+        ))}
     </table>
   );
 };
