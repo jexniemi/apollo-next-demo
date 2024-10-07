@@ -24,7 +24,11 @@ const server = new ApolloServer({
 });
 
 // Initialize the database connection
-const db = await initDBConnection();
+const { db, client } = await initDBConnection();
+
+process.on("exit", () => {
+  client.close();
+});
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app

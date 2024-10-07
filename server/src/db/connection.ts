@@ -23,5 +23,5 @@ export const initDBConnection = async () => {
   }
 
   let db = client.db("books");
-  return db;
+  return { db, client };
 };
